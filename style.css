@@ -1,0 +1,11 @@
+div h1{
+    color: orange;
+}
+
+div div h1{
+    color: greenyellow;
+}
+
+div div{
+    background-color: pink;
+}
