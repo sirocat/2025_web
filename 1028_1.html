@@ -1,11 +1,120 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Starbucks Layout</title>
+<style>
+  /* 기본 리셋 */
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family: "Noto Sans KR", Arial, sans-serif; background: #f2efe9; }
+
+  /* 전체 래퍼 (너비 고정) */
+  #wrap {
+    width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    /* border:2px solid red;  debug용 - 제거하세요 */
+    background: transparent;
+    overflow: visible;
+  }
+
+  /* 로고 (왼쪽 고정) */
+  h1 { float: left; margin: 0 20px 0 0; }
+  h1 img { display:block; height: 56px; }
+
+  /* nav는 로고를 제외한 나머지 공간을 차지하도록 width 계산 */
+  /* (1100px == #wrap width) */
+  nav {
+    float: right;
+    width: calc(1100px - 56px - 40px); /* 로고 높이 기준 대략 공간 빼기 */
+    /* nav에 배경 없애고 내부 요소로 레이아웃 구성 */
+  }
+
+  /* 상단 작은 링크 (오른쪽 상단 정렬) */
+  #top {
+    float: right;            /* nav 내부에서 오른쪽 정렬 */
+    margin-top: 6px;         /* 로고와 맞추는 세로 위치 */
+  }
+  #top li {
+    float: left;
+    font-size: 13px;
+    color: #6b6b6b;
+    padding: 0 10px;
+    line-height: 1;
+    white-space: nowrap;
+    position: relative;
+  }
+  /* 구분선: 첫 번째 항목 제외하고 왼쪽에 가는 선 */
+  #top li + li { border-left: 1px solid rgba(0,0,0,0.12); padding-left: 14px; margin-left: 6px; }
+
+  /* 검색 아이콘을 사각 박스로 스타일링 (스크린샷 느낌) */
+  #top li img {
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  /* 검색 아이콘을 둘러싼 박스(마지막 li에 적용) */
+  #top li:last-child {
+    border: 1px solid rgba(0,0,0,0.35);
+    background: #fff;
+    padding: 6px;
+    border-radius: 6px;
+    margin-left: 12px;
+  }
+
+  /* GNB: #top 아래 중앙 정렬 */
+  #gnb {
+    clear: both;             /* #top의 float 아래로 내리기 */
+    text-align: center;      /* 내부 inline-block 아이템 가운데 정렬 */
+    margin-top: 12px;
+  }
+  #gnb li {
+    display: inline-block;
+    margin: 0 18px;
+    padding: 8px 0;
+    font-size: 15px;
+    color: #222;
+    letter-spacing: 0.06em;
+  }
+
+  /* 시각적 미세조정: wrap 주변 여백(상단 레드 라인처럼 보이는 경우 대비) */
+  /* 모바일 간단 대응 */
+  @media (max-width: 900px) {
+    #wrap { width: 95%; padding: 10px; }
+    h1 img { height: 48px; }
+    nav { width: calc(100% - 56px); }
+    #top li { font-size: 12px; padding: 0 8px; }
+    #gnb li { margin: 0 12px; font-size: 14px; }
+  }
+</style>
 </head>
 <body>
-    
+  <div id="wrap">
+    <h1>
+      <img src="https://www.starbucks.co.kr/common/img/common/logo.png" alt="스타벅스 로고">
+    </h1>
+
+    <nav>
+      <ul id="top">
+        <li>Sign In</li>
+        <li>My Starbucks</li>
+        <li>Customer Service &amp; Ideas</li>
+        <li>Find a Store</li>
+        <li><img src="//image.istarbucks.co.kr/common/img/common/icon_magnifier_black.png" alt="search"></li>
+      </ul>
+
+      <ul id="gnb">
+        <li>COFFEE</li>
+        <li>MENU</li>
+        <li>STORE</li>
+        <li>ESG</li>
+        <li>STARBUCKS REWARDS</li>
+        <li>CORPORATE SALES</li>
+        <li>WHAT'S NEW</li>
+      </ul>
+    </nav>
+    <div style="clear:both;"></div>
+  </div>
 </body>
 </html>
