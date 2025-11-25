@@ -3,10 +3,7 @@ li{list-style: none;}
 a,a:link,a:visited{text-decoration: none;color: inherit;}
 
 /* 공용 */
-.container{
-    width: 1140px; margin: 0 auto;
-    border: 2px solid #f0f;
-}
+.container{width: 1140px; margin: 0 auto;}
 
 header{width: 100%; color:#fff; padding:1rem;
     position: fixed; top:0;
@@ -40,6 +37,37 @@ main .container button{
     font-weight: bold; padding: 1rem 2rem;
     background-color: transparent; margin-top: 3rem;
 }
-section{height: 2000px;}
 
 
+section{padding: 5.5rem 0;}
+section:nth-of-type(2){background-color: #ccc;}
+section .title{margin-bottom: 3rem;}
+section .title h4{color: red;font-size: 1.5rem;}
+section .title h2{font-size: 3rem;}
+section .about-self{display:flex;padding-bottom: 9rem;}
+section .about-self .left{width: 50%;}
+section .about-self .left img{width: 100%;}
+section .about-self .right{width: 50%; padding: 1rem;}
+section .about-self .right h3{font-size: 2rem;margin-bottom: 1rem;}
+section .about-self .right h3 span{color: red;}
+section .about-self .right p{font-size: 1.2rem; margin: 1rem 0;}
+section .about-self .right .icon a{font-size: 2rem; padding-left: 0.5rem;}
+section .about-self .right .icon a:nth-of-type(1){color: #3b8af3;}
+section .about-self .right .icon a:nth-of-type(2){color: red;}
+section .about-self .right .icon a:nth-of-type(3){color: black;}
+section .about-self .right .icon a:nth-of-type(4){color: black;}
+
+
+.port-box{display: flex; justify-content: space-between;}
+/* display: flex
+이 요소를 flex 컨테이너로 만듦
+안에 있는 자식 요소들은 자동으로 가로 정렬(기본값: row) 됨
+✔ justify-content: space-between
+가로 배치된 자식들을 양 끝에 붙이고,
+사이 간격을 동일하게 분배함
+즉, 이런 느낌:
+|[자식1]      [자식2]      [자식3]| */
+.port-box .port-inner{width: 30%; background-color: #fff; padding: 1rem;margin-bottom: 2rem;}
+.port-box .port-inner img{width: 100%;}
+.port-box .port-inner p{color: red;margin: 0.3rem 0;font-weight: bold;}
+.port-box .port-inner h3{font-size: 1.5rem;}
